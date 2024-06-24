@@ -22,12 +22,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-		sh 'ls -lsa'
+		sh '''
+  			ls -lsa
+     			cd nginx_html_nix
+		    	nix build
+		    '''
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+		sh '''
+			docker load -i result
+   			docker run --rm nginx:nix -p 8000:81
+      			curl localhost:8000/health
+    		'''
             }
         }
         stage('Deploy') {
