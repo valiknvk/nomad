@@ -8,7 +8,8 @@ pipeline {
                 sh './setup.sh'
 		}
 	}
-	stage('Prebuild'){
+	stage('Prebuild') {
+	  steps {
 		git(
     		url: "git@github.com:valiknvk/jekyllSite.git",
     		branch: "main",
@@ -16,6 +17,7 @@ pipeline {
     		changelog: true,
     		poll: true
 		)
+	  }
 	}
         stage('Build') {
             steps {
