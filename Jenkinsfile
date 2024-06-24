@@ -33,6 +33,9 @@ pipeline {
             steps {
                 echo 'Testing..'
 		sh '''
+  			ls -lsa 
+     			pwd
+			cd nginx_html_nix
    			docker-compose up -d
       			curl localhost:8000/health
 	 		docker-compose down
