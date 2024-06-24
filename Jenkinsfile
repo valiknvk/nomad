@@ -5,7 +5,7 @@ pipeline {
 	stage('SetupBuilder'){
 	    steps {
 		echo 'Pre build setup..'
-		./setup.sh
+                sh './setup.sh'
 		}
 	}
         stage('Build') {
