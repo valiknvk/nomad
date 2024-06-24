@@ -34,8 +34,9 @@ pipeline {
                 echo 'Testing..'
 		sh '''
 			docker load -i result
-   			docker run --rm nginx:nix -p 8000:81
+   			docker-compose up -d
       			curl localhost:8000/health
+	 		docker-compose down
     		'''
             }
         }
