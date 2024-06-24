@@ -25,7 +25,7 @@ pipeline {
 		sh '''
   			ls -lsa
      			cd nginx_html_nix
-		    	/nix/var/nix/profiles/default/bin/nix build
+		    	
 		    '''
             }
         }
