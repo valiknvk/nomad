@@ -33,7 +33,6 @@ pipeline {
             steps {
                 echo 'Testing..'
 		sh '''
-			docker load -i result
    			docker-compose up -d
       			curl localhost:8000/health
 	 		docker-compose down
