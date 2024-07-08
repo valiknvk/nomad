@@ -2,17 +2,17 @@ job "html_site" {
 
   group "site" {
     network {
-      mode = "host"
+      mode = "bridge"
       port "http" { 
-	static = 81
-        to     = 81
+	static = 8080
+        to     = 80
       }
     }
   
     task "nginx" {
       driver = "docker"
       config {
-	network_mode = "host"
+	#network_mode = "host"
         image = "nginx:nix"
 
         ports = ["http"]
